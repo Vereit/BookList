@@ -1,0 +1,33 @@
+﻿@page
+@model BookList.Pages.Books.IndexModel
+@{
+}
+
+<br>
+<h2>Список Книг</h2>
+<a class="btn btn-primary btn-sm" href="/Books/Create"> Новая Книга</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Genre</th>
+            <th>Created At</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model.listBooks)
+        {
+            <tr>
+                <td>@item.id</td>
+                <td>@item.name</td>
+                <td>@item.genre</td>
+                <td>@item.created_ad</td>
+                <td>
+                    <a class="btn btn-primary btn-sm" href="/Books/Edit?id=@item.id">Изменить</a>
+                    <a class="btn btn-danger btn-sm" href="/Books/Delete?id=@item.id">Удалить</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
